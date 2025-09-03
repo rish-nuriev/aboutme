@@ -1,0 +1,414 @@
+/* Основные шрифты и сброс */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
+  background: #f9f9f9;
+}
+
+/* Навигация */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(255,255,255,0.95);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 100;
+  box-sizing: border-box;
+}
+
+/* Логотип */
+nav .logo {
+  font-weight: 700;
+  font-size: 1.5em;
+  color: green;
+}
+
+/* Список меню */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+  justify-content: center; /* центрирование пунктов */
+}
+
+/* Пункты меню */
+nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  position: relative;
+  padding: 5px 0;
+  transition: color 0.3s;
+}
+
+/* Лёгкая анимация при hover */
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: green;
+  transition: width 0.3s;
+}
+
+nav ul li a:hover {
+  color: green;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+/* Гамбургер */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25px;
+  height: 20px;
+  cursor: pointer;
+  position: fixed; /* фиксируем */
+  top: 20px;       /* отступ сверху */
+  right: 50px;     /* отступ справа */
+  z-index: 200;    /* выше меню */
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  background-color: #333;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+/* Анимация крестика */
+.hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Hero / Обо мне */
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding-top: 70px;
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.hero-photo {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* Секции */
+.section {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.section h2 {
+  font-size: 2em;
+  margin-bottom: 40px;
+}
+
+/* Карточки услуг */
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  width: 250px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* Форма */
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: auto;
+  gap: 15px;
+}
+
+input, textarea, button {
+  padding: 12px;
+  font-size: 1em;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  resize: none;
+}
+
+/* Форма обратной связи */
+textarea {
+  padding: 12px;
+  font-size: 1em;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  resize: vertical; /* позволяет менять высоту вручную */
+  min-height: 120px; /* начальная высота */
+  width: 100%; /* растягивается по ширине формы */
+  box-sizing: border-box;
+}
+
+button {
+  background: green;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #357abd;
+}
+
+/* Адаптив для маленьких экранов */
+@media screen and (max-width: 768px) {
+  nav {
+    flex-direction: row;
+    padding: 15px 20px;
+  }
+
+  nav ul {
+    display: none;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    text-align: center;
+  }
+
+  nav ul.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}
+
+
+/* Блок Обо мне */
+.about-section {
+  padding: 80px 20px;
+  background: #f7f9fb;
+}
+
+.about-section h2 {
+  font-size: 2em;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.about-content {
+  display: flex;
+  gap: 40px;
+  max-width: 1000px;
+  margin: auto;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.about-photo {
+  flex: 0 0 200px;
+}
+
+.about-photo img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.about-text {
+  flex: 1;
+  min-width: 250px;
+  text-align: left;
+}
+
+.about-text p {
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.about-text h3 {
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+.skills-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.skills-list li {
+  margin-bottom: 10px;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+
+.services-section {
+  padding: 80px 20px;
+  background: #ffffff;
+}
+
+.services-section h2 {
+  font-size: 2em;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.services-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.service-item {
+  background: #f7f9fb;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.service-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.service-item h3 {
+  margin-bottom: 15px;
+  font-size: 1.2em;
+}
+
+.service-item p {
+  line-height: 1.5;
+  font-size: 0.95em;
+}
+
+
+.lang-switch {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+  margin: 0 15px; /* отступ от меню и гамбургера */
+  padding: 0;
+}
+
+.lang-switch li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.lang-switch li a:hover,
+.lang-switch li a.active {
+  color: #007BFF;
+}
+
+/* Адаптив для мобильных экранов */
+@media (max-width: 768px) {
+  .lang-switch {
+    flex-direction: row;
+    margin: 10px 0 0 0;
+  }
+}
+
+footer {
+  background-color: #f5f5f5;
+  padding: 20px 0;
+  text-align: center;
+  color: #333;
+  font-size: 0.9em;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.popup-message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #007BFF;
+  color: #fff;
+  padding: 20px 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  display: none;
+  z-index: 9999;
+  min-width: 250px;
+  font-size: 1em;
+  text-align: center;
+}
+
+.popup-message button {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 1.2em;
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.popup-message.show {
+  display: block;
+  animation: popup-fade 0.5s ease;
+}
+
+@keyframes popup-fade {
+  from { opacity: 0; transform: translate(-50%, -60%);}
+  to { opacity: 1; transform: translate(-50%, -50%);}
+}
